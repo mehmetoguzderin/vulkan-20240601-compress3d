@@ -27,6 +27,17 @@ int main(int argc, char *argv[]) {
         std::cout << "Device does not support BC1 RGB UNORM with 3D when "
                      "optimal tiling\n";
       }
+      try {
+        auto imageFormatProperties =
+            physicalDevices[i].getImageFormatProperties(
+                format, vk::ImageType::e1D, vk::ImageTiling::eOptimal,
+                vk::ImageUsageFlagBits::eSampled, {});
+        std::cout
+            << "Device supports BC1 RGB UNORM with 1D when optimal tiling\n";
+      } catch (vk::Error &err) {
+        std::cout << "Device does not support BC1 RGB UNORM with 1D when "
+                     "optimal tiling\n";
+      }
     }
   } catch (vk::SystemError &err) {
     std::cout << "vk::SystemError: " << err.what() << "\n";
