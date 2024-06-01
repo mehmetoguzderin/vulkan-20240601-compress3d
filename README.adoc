@@ -1,0 +1,26 @@
+:toc:
+
+## Cloning
+
+....
+git clone --recurse-submodules https://github.com/mehmetoguzderin/vulkan-20240601-compress3d
+....
+
+## Configuring
+
+....
+cmake -G Ninja -DCMAKE_MAKE_PROGRAM=ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release -S ./ -B ./build
+....
+
+## Building
+
+....
+cmake --build ./build
+....
+
+## Running
+
+....
+./build/vulkan-20240601-compress3d
+....
+
